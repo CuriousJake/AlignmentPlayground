@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alignment Playground</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Alignment Playground</h1>
+
+      <div class="chips" id="modeChips"></div>
+
+      <div class="actions">
+        <button id="copyBtn">Copy CSS</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <label>Container</label>
+      <div class="row">
+        <input id="cw" type="text" placeholder="Width (e.g. 90% or 600px)">
+        <input id="ch" type="text" placeholder="Height (e.g. 70% or 300px)">
+      </div>
+
+      <!-- Padding + Gap row (Gap will be hidden automatically for Text/Position) -->
+      <div class="row" id="padGapRow">
+        <input id="pad" type="text" placeholder="Padding (e.g. 16px)">
+        <input id="gap" type="text" placeholder="Gap (e.g. 12px)">
+      </div>
+
+      <div id="alignmentBlock"></div>
+
+      <label>Child</label>
+      <div class="row">
+        <select id="contentType">
+          <option value="text">Text</option>
+          <option value="button">Button</option>
+          <option value="image">Image placeholder</option>
+        </select>
+        <input id="radius" type="number" min="0" max="48" placeholder="Radius (px)">
+      </div>
+      <div class="row">
+        <input id="bw" type="text" placeholder="Child width (e.g. 180px)">
+        <input id="bh" type="text" placeholder="Child height (e.g. 70px)">
+      </div>
+
+      <p class="muted" id="explain"></p>
+    </div>
+
+    <div class="card previewOuter">
+      <div class="preview">
+        <div class="parent" id="parent">
+          <div class="child" id="child">Hello</div>
+        </div>
+      </div>
+
+      <div>
+        <label>Generated CSS</label>
+        <pre id="cssOut"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

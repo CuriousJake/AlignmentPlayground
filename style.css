@@ -1,0 +1,141 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+body {
+  margin: 0;
+  background: #0b0f17;
+  color: #e9eefc;
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  background: #121a2a;
+  border: 1px solid #22304d;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+h1 { font-size: 22px; margin: 0 0 10px; }
+
+label {
+  display: block;
+  font-size: 12px;
+  opacity: .9;
+  margin: 10px 0 6px;
+}
+
+select, input, button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #2a3a5e;
+  background: #0f1626;
+  color: #e9eefc;
+  outline: none;
+}
+
+/* Fix rows: works for 1 or 2+ fields */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+/* if there’s only one field in a row, make it full width */
+.row > :only-child {
+  grid-column: 1 / -1;
+}
+
+/* when we hide Gap, make the row single column */
+.row.single {
+  grid-template-columns: 1fr;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.chip {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid #2a3a5e;
+  background: #0f1626;
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+}
+
+.chip.active {
+  border-color: #6ea8fe;
+  box-shadow: 0 0 0 3px rgba(110,168,254,.15);
+}
+
+.previewOuter { display: grid; gap: 12px; }
+
+.preview {
+  height: 420px;
+  border-radius: 14px;
+  border: 1px dashed #3a4f7a;
+  background:
+    radial-gradient(1000px 400px at 30% 0%, rgba(110,168,254,.14), transparent),
+    radial-gradient(800px 500px at 70% 30%, rgba(168,110,254,.12), transparent);
+  padding: 14px;
+  overflow: hidden;
+}
+
+.parent {
+  width: 90%;
+  height: 70%;
+  margin: 0 auto;
+  border-radius: 14px;
+  border: 1px solid #2a3a5e;
+  background: #0f1626;
+  position: relative;
+  transition: .15s;
+}
+
+.child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6ea8fe;
+  color: #0b0f17;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: .15s;
+  user-select: none;
+  padding: 10px 12px;
+  max-width: 90%;
+}
+
+pre {
+  margin: 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #0a1020;
+  border: 1px solid #22304d;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.actions { display: flex; gap: 10px; }
+.actions button { cursor: pointer; flex: 1; width: auto; }
+
+.muted { font-size: 12px; opacity: .85; }
+
+@media (max-width: 980px){
+  .wrap { grid-template-columns: 1fr; }
+  .preview { height: 340px; }
+}
